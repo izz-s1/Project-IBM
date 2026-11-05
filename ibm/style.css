@@ -1,0 +1,228 @@
+/* =============================================
+   Test Case Generator — Custom Styles
+   (Tailwind handles most of the layout; this file
+    provides reusable component classes and
+    fine-grained tweaks not easily done inline.)
+   ============================================= */
+
+/* ---------- Base input / select style ---------- */
+.input-field {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 0.625rem;
+  background: #F8FAFC;
+  font-size: 0.875rem;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.input-field:focus {
+  border-color: #2563EB;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.input-field::placeholder {
+  color: #94a3b8;
+}
+
+/* ---------- Checkbox labels ---------- */
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  color: #475569;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  accent-color: #2563EB;
+}
+
+/* ---------- Error message ---------- */
+.error-msg {
+  display: none;
+}
+.error-msg.visible {
+  display: block;
+}
+
+/* ---------- Badge base ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* Priority badges */
+.badge-high     { background: #FEE2E2; color: #B91C1C; }
+.badge-medium   { background: #FEF3C7; color: #92400E; }
+.badge-low      { background: #D1FAE5; color: #065F46; }
+
+/* Type badges */
+.badge-positive   { background: #DBEAFE; color: #1D4ED8; }
+.badge-negative   { background: #FCE7F3; color: #9D174D; }
+.badge-boundary   { background: #E0E7FF; color: #3730A3; }
+.badge-edge       { background: #F3E8FF; color: #6B21A8; }
+
+/* Status badges */
+.badge-pass    { background: #D1FAE5; color: #065F46; }
+.badge-fail    { background: #FEE2E2; color: #B91C1C; }
+.badge-pending { background: #F1F5F9; color: #475569; }
+
+/* ---------- Test Case card ---------- */
+.tc-card {
+  background: #fff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px 0 rgba(37,99,235,0.06);
+  transition: box-shadow 0.18s, border-color 0.18s, transform 0.12s;
+  overflow: hidden;
+}
+
+.tc-card:hover {
+  box-shadow: 0 4px 18px 0 rgba(37,99,235,0.13);
+  border-color: #93c5fd;
+  transform: translateY(-1px);
+}
+
+/* ---------- Card header accent line ---------- */
+.tc-card-header {
+  border-left: 4px solid #2563EB;
+  padding: 0.875rem 1.25rem 0.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+/* ---------- Expand/collapse chevron ---------- */
+.chevron {
+  display: inline-block;
+  transition: transform 0.2s;
+  line-height: 1;
+  font-style: normal;
+}
+.chevron.open {
+  transform: rotate(180deg);
+}
+
+/* ---------- Card body (collapsible) ---------- */
+.tc-card-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.28s ease;
+}
+.tc-card-body.open {
+  max-height: 600px;
+}
+
+/* ---------- Detail row inside card body ---------- */
+.detail-row {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.4rem 1.25rem;
+  font-size: 0.8125rem;
+  color: #475569;
+  border-top: 1px solid #F1F5F9;
+}
+.detail-row .detail-label {
+  flex-shrink: 0;
+  width: 7rem;
+  font-weight: 600;
+  color: #64748B;
+}
+.detail-row .detail-value {
+  color: #1e293b;
+  white-space: pre-wrap;
+}
+
+/* ---------- Status select inside card ---------- */
+.status-select {
+  appearance: none;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 9999px;
+  padding: 0.125rem 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.status-select:focus { border-color: #2563EB; }
+.status-select.status-pass    { background: #D1FAE5; color: #065F46; border-color: #6EE7B7; }
+.status-select.status-fail    { background: #FEE2E2; color: #B91C1C; border-color: #FCA5A5; }
+.status-select.status-pending { background: #F1F5F9; color: #475569; border-color: #CBD5E1; }
+
+/* ---------- Action buttons ---------- */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.875rem;
+  height: 1.875rem;
+  border-radius: 0.5rem;
+  transition: background 0.15s;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+.btn-icon:hover { background: #F1F5F9; }
+.btn-icon.danger:hover { background: #FEE2E2; }
+
+/* ---------- Toast ---------- */
+#toast {
+  transition: opacity 0.3s;
+}
+#toast.show {
+  display: flex !important;
+}
+
+/* ---------- Modal overlay fade ---------- */
+#modal-overlay,
+#delete-modal {
+  transition: opacity 0.2s;
+}
+
+/* ---------- Scrollbar (webkit) ---------- */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #F1F5F9; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+/* ---------- Focus-visible outline ---------- */
+:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+}
+
+/* ---------- Responsive card actions (mobile vs desktop) ---------- */
+/*
+  Two sets of action controls exist inside each card:
+    .tc-card-actions-inline  — shown on sm+ (≥640px), hidden on mobile
+    .tc-card-actions-mobile  — shown on mobile (<640px), hidden on sm+
+  This avoids cramming the status dropdown + icon buttons onto the same
+  line as the title on narrow screens.
+*/
+
+/* Mobile (<640px): hide inline actions, show the mobile row */
+.tc-card-actions-inline { display: none; }
+.tc-card-actions-mobile { display: flex; }
+
+/* sm+ (≥640px): show inline actions, hide the mobile row */
+@media (min-width: 640px) {
+  .tc-card-actions-inline { display: flex; }
+  .tc-card-actions-mobile { display: none;  }
+}
+
